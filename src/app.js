@@ -39,11 +39,20 @@ app.get('/help', (req, res) => {
 });
 
 app.get('/help/*', (req, res) => {
-    res.send('Help article not found');
+    res.render('404', {
+        title: 'Help article not found',
+        name: 'Davi',
+        errorMessage: 'My 404 page'
+    });
+    // res.send('Help article not found');
 });
 
 app.get('*', (req, res) => {
-    res.send('My 404 page');
+    res.render('404', {
+        title: '404',
+        name: 'Davi',
+        errorMessage: 'My 404 page'
+    });
 
 })
 
