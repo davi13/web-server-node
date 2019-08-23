@@ -38,9 +38,15 @@ app.get('/help', (req, res) => {
     });
 });
 app.get('/weather', (req, res) => {
+    if (!req.query.address) {
+        return res.send({
+            error: 'You must provide a address term'
+        })
+    }
     res.send({
         forecast: 'hot summer',
-        location: 'paris'
+        location: 'paris',
+        address: req.query.address
     });
 });
 
