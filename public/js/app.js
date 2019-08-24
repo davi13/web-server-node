@@ -1,13 +1,13 @@
 console.log('client side javascript file loaded')
 fetch('http://localhost:3000/weather?address=marseille')
     .then((response) => {
-
         response.json()
             .then((data) => {
                 if (data.error) {
                     console.log(data.error)
                 } else {
-                    console.log(data)
+                    console.log(data.location)
+                    console.log(data.forecast)
                 }
             })
     });
